@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>contactEmailRot13</key>
+	<string>qbhtny.znpcurefba@zr.pbz</string>
+	<key>contactName</key>
+	<string>Dougal MacPherson</string>
+	<key>description</key>
+	<string>&lt;p&gt;TextMate 2 bundle for &lt;a href="https://github.com/bbatsov/rubocop"&gt;rubocop&lt;/a&gt;&lt;/p&gt;
+&lt;quote&gt;"A robust Ruby code analyzer, based on the community Ruby style guide"&lt;/quote&gt;</string>
+	<key>name</key>
+	<string>Rubocop-TM2</string>
+	<key>uuid</key>
+	<string>09DF6CE7-0EDD-4651-9FC3-982579C17E3A</string>
+</dict>
+</plist>
