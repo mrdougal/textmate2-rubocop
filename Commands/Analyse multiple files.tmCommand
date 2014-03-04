@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>saveModifiedFiles</string>
+	<key>command</key>
+	<string>
+#!/usr/bin/env bash
+
+#####!/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/bin/ruby -wKU
+cd "$TM_PROJECT_DIRECTORY"
+ruby "$TM_BUNDLE_SUPPORT/bin/run_files"</string>
+	<key>input</key>
+	<string>none</string>
+	<key>inputFormat</key>
+	<string>text</string>
+	<key>keyEquivalent</key>
+	<string>~@r</string>
+	<key>name</key>
+	<string>Analyse multiple files</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>html</string>
+	<key>outputLocation</key>
+	<string>newWindow</string>
+	<key>scope</key>
+	<string>source.ruby</string>
+	<key>uuid</key>
+	<string>A74AE103-6576-427F-834D-34654C90FD86</string>
+	<key>version</key>
+	<integer>2</integer>
+</dict>
+</plist>
