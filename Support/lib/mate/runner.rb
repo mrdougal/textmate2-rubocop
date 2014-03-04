@@ -1,6 +1,5 @@
-# require 'rubocop'
 require ENV['TM_BUNDLE_SUPPORT'] + '/lib/mate/display.rb'
-
+require ENV['TM_BUNDLE_SUPPORT'] + '/lib/mate/proxy.rb'
 
 module Mate
   class Runner
@@ -12,22 +11,23 @@ module Mate
     end
 
     def run_file
-      # puts run!
-      puts Display.new(:json => run!).render
+      render(single_file)
+    end                                                 
+                                                        
+    def run_files                                       
+      render(multiple_files)
+    end                                                 
+                                                        
+    private                                             
+                                                        
+    def render(files)
+      puts Display.new(:json => run(files)).render
     end
     
-    private
-    
-    def run!
-      
-      # output = ''
+    def run(f)
       Dir.chdir(project_directory) do
-        
-        '{"name":"dougal"}'
-        # Rubocop::CLI.new.run([options_to_s, files].join(' '))
+        Proxy.run!(:options => options_to_s, :files => f)
       end
-      
-      # output
     end
     
     def options_to_s
@@ -36,16 +36,16 @@ module Mate
       end
     end
     
-    def files
+    def project_directory
+      File.expand_path(ENV['TM_PROJECT_DIRECTORY']) rescue File.dirname(single_file)
+    end
+
+    def multiple_files
       ENV['TM_SELECTED_FILES'].scan(/'(.*?)'/).flatten.collect do |path|
         File.expand_path(path)
       end
     end
     
-    def project_directory
-      File.expand_path(ENV['TM_PROJECT_DIRECTORY']) rescue File.dirname(single_file)
-    end
-
     def single_file
       File.expand_path(ENV['TM_FILEPATH'])
     end

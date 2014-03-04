@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+$: << "#{ENV['TM_BUNDLE_SUPPORT']}/lib"
+
+require 'mate/runner'
+Mate::Runner.new.run_files
+
