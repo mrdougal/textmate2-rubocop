@@ -11,7 +11,8 @@ module Mate
         
         def url_to(file, line = nil)
           out = "txmt://open?url=file://#{File.expand_path(file.path)}"
-          line ? "#{out}&line=#{line}" : out
+          out += "&line=#{line}" if line
+          out
         end
         
         def fixed_class(val)
@@ -43,6 +44,8 @@ module Mate
         end
         
         def partial(file, options = {})
+          # rubocop considers the next line 'useless', but is used by erb with it's binding
+          # i'm' not sure how else to implement it
           f = options[:f]
           ERB.new(File.read(template_path(file))).result(binding)
         end
