@@ -92,11 +92,7 @@
   <% @files.each do |f| %>
     <div class="file_report">
       <h4 class="wrapper filename"><a href="<%= url_to(f) %>"><%= filename(f) %></a></h4>
-      <% if f.offences.empty? %>
-        <%= partial '_all_good.erb' %>
-      <% else %>
-        <%= partial '_offences.erb', {:f => f} %>
-      <% end %>
+      <%= partial "_#{'no_' if f.offences.empty? }offences.erb", {:f => f} %>
     </div>
   <% end %>
 
