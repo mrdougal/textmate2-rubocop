@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Rubocop results</title>
+  <title><%= offences_message %> from <%= file_count %> | Rubocop</title>
   <style type="text/css" media="screen">
   
     body {
@@ -10,9 +10,11 @@
       body: 0;
     }
     
-    h1, h2, h3, th {
+    h1, h2, h3, h4, th {
       font-weight: 600;
       font-size: 1em;
+      padding: 0;
+      margin: 0;
     }
     
     ol, ol li {
@@ -26,6 +28,10 @@
       padding: 0.25em;
     }
     
+    .wrapper {
+      padding: 0.5em 1em;
+    }
+        
     /*    
       Offences, posible values...
       * refactor 
@@ -35,15 +41,12 @@
       * fatal
     */
     
-    .status {
-      padding: 0.5em 1em;
-    }
-        
     .refactor {
       background-color: #FB4F5F;
     }
     
     .convention {
+      background-color: #DDDDDC;
     }
     
     .warning {
@@ -79,18 +82,17 @@
     #metadata th, #metadata td {
       text-align: left;
       padding-right: 0.75em;
+      font-weight: 400;
     }
     
   </style>
 </head>
 <body>
   
-  <h1><%= offences_message %> from <%= file_count %></h1>
-  
   <% @files.each do |f| %>
     <div class="file_report">
-      <h4><a href="<%= url_to(f) %>"><%= filename(f) %></a></h4>
-      <% if @summary[:offence_count].zero? %>
+      <h4 class="wrapper filename"><a href="<%= url_to(f) %>"><%= filename(f) %></a></h4>
+      <% if f.offences.empty? %>
         <%= partial '_all_good.erb' %>
       <% else %>
         <%= partial '_offences.erb', {:f => f} %>
@@ -98,11 +100,12 @@
     </div>
   <% end %>
 
-  <table id="metadata">
-    <% metadata.each_pair do |key, value| %>
-      <tr><th><%= key %></th><td><%= value %></td></tr>
-    <% end %>
-  </table>
-
+  <footer class="wrapper">
+    <table id="metadata">
+      <% metadata.each_pair do |key, value| %>
+        <tr><th><%= key %></th><td><%= value %></td></tr>
+      <% end %>
+    </table>
+  </footer>
 </body>
 </html>

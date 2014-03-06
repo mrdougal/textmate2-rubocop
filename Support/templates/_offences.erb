@@ -1,6 +1,6 @@
 <ol class="offences">
   <% f.offences.each do |o| %>
-    <li class="status <%= [o.severity, fixed_class(o.corrected?)].join(' ') %>">
+    <li class="wrapper <%= [o.severity, fixed_class(o.corrected?)].join(' ') %>">
       <a href="<%= url_to(f,o.line) %>" title="<%= o.severity %>">
         <%= o.message %>
       </a>
