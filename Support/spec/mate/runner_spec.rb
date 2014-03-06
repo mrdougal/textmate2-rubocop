@@ -8,12 +8,16 @@ describe "Mate runner" do
     @runner = Mate::Runner.new
   end
   
-  it "should have project_directory" do
-    @runner.send(:project_directory).should =~ /Support/
+  it "should be able to run" do
+    @runner.run_file.should == ''
   end
   
-  it "should have files" do
-    @runner.send(:files).should_not be_empty
+  it "should have project_path" do
+    @runner.send(:project_path).should =~ /Support/
+  end
+  
+  it "should responed to multiple_files" do
+    @runner.send(:multiple_files).should_not be_empty
   end
   
 end

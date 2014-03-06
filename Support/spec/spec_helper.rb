@@ -1,6 +1,6 @@
 
 # Stubs for TextMate env
-ENV['TM_PROJECT_DIRECTORY'] ||= '.'
+ENV['TM_PROJECT_DIRECTORY'] ||= File.dirname('.')
 ENV['TM_BUNDLE_SUPPORT']    ||= File.dirname('..')
 
 $: << '../lib'

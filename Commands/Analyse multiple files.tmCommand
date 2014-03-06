@@ -5,14 +5,17 @@
 	<key>beforeRunningCommand</key>
 	<string>saveModifiedFiles</string>
 	<key>command</key>
-	<string>
+	<string>#!/usr/bin/env bash
+[[ -f "${TM_SUPPORT_PATH}/lib/bash_init.sh" ]] &amp;&amp; . "${TM_SUPPORT_PATH}/lib/bash_init.sh"
+
+
 #!/usr/bin/env bash
 
 #####!/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/bin/ruby -wKU
 cd "$TM_PROJECT_DIRECTORY"
 ruby "$TM_BUNDLE_SUPPORT/bin/run_files"</string>
 	<key>input</key>
-	<string>none</string>
+	<string>selection</string>
 	<key>inputFormat</key>
 	<string>text</string>
 	<key>keyEquivalent</key>
