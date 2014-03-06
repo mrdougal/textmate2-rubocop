@@ -10,7 +10,8 @@ module Mate
         include Mate::Env
         
         def url_to(file, line = nil, column = nil)
-          # for reference http://blog.macromates.com/2007/the-textmate-url-scheme/
+          # for reference 
+          # http://blog.macromates.com/2007/the-textmate-url-scheme/
           out = "txmt://open?url=file://#{File.expand_path(file.path)}"
           out += "&line=#{line}" if line
           out += "&column=#{column}" if column
@@ -23,6 +24,10 @@ module Mate
         
         def fixed_message(val)
           "This has #{val ? 'has' : 'has not'} been fixed automatically"
+        end
+        
+        def class_for_issue(issue)
+          ['wrapper', issue.severity, fixed_class(issue.corrected?)].join(' ')
         end
         
         # Remove the project
@@ -46,7 +51,8 @@ module Mate
         end
         
         def partial(file, options = {})
-          # rubocop considers the next line 'useless', but is used by erb with it's binding
+          # rubocop considers the next line 'useless', 
+          # but is used by erb with it's binding
           # i'm' not sure how else to implement it
           f = options[:f]
           ERB.new(File.read(template_path(file))).result(binding)

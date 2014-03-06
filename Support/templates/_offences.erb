@@ -1,10 +1,11 @@
 <ol class="offences">
   <% f.offences.each do |o| %>
-    <li class="wrapper <%= [o.severity, fixed_class(o.corrected?)].join(' ') %>">
+    <li class="<%= class_for_issue(o) %>" <%= 'title="This issue was automatically corrected"' if o.corrected? %>>
       <a href="<%= url_to(f,o.line, o.real_column) %>" title="<%= o.severity %>">
         <%= o.message %>
       </a>
       <span class="cop_name"><%= o.cop_name %></span>
+      <%= '<span class="auto-corrected">✓</span>' if o.corrected? %>
     </li>
   <% end %>
 </ol>
