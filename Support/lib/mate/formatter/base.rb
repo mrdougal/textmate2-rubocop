@@ -36,11 +36,11 @@ module Mate
 
       def metadata
         {
-          rubocop_version: Rubocop::Version::STRING,
-          ruby_engine:     RUBY_ENGINE,
-          ruby_version:    RUBY_VERSION,
-          ruby_patchlevel: RUBY_PATCHLEVEL.to_s,
-          ruby_platform:   RUBY_PLATFORM
+          :'Rubocop version' => Rubocop::Version::STRING,
+          :'Ruby engine'     => RUBY_ENGINE,
+          :'Ruby version'    => RUBY_VERSION,
+          :'Ruby patchlevel' => RUBY_PATCHLEVEL.to_s,
+          :'Ruby platform'   => RUBY_PLATFORM
         }
       end
       
