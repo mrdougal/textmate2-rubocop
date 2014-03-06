@@ -6,26 +6,94 @@
   
     body {
       font: normal 1em Verdana, sans-serif;
+      margin: 0;
+      body: 0;
     }
     
-    h1, h2, h3 {
+    h1, h2, h3, th {
       font-weight: 400;
       font-size: 1em;
     }
     
-    pre {
-      background-color: #F2F2F2;
+    ol, ol li {
+      list-style: none;
+      margin: 0;
+      padding: 0;
     }
+    
+    a {
+      display: inline-block;
+      padding: 0.25em;
+    }
+    
+    /* ============ */
+    /* = Offences = */
+    /* ============ */
+    /*    `:refactor`, `:convention`, `:warning`, `:error` or `:fatal`.*/
+    
+    .refactor {
+      background-color: #FB4F5F;
+    }
+    
+    .convention {
+    }
+    
+    .warning {
+      background-color: #FFFA65;
+    }
+    
+    .error {
+      background-color: #FF6700;
+    }
+    
+    .fatal {
+      color: #fff;
+      background-color: #CC0920;
+    }
+    
+    .file_report {
+      margin-bottom: 1em;
+    }
+    
+    .cop_name, #metadata {
+      color: #BFBFBF;
+      font-size: 0.75em;
+    }
+
+    #metadata {
+      margin-top: 1em;
+    }
+    
+    #metadata th, #metadata td {
+      text-align: left;
+      padding-right: 0.75em;
+    }
+    
   </style>
 </head>
-<body id="results">
+<body>
   
-  <%#= @results['files'] %>
-  
+  <% @files.each do |f| %>
+    <div class="file_report">
+      <a href="<%= url_to(f) %>"><%= filename(f) %></a>
+      <ol class="offences">
+        <% f.offences.each do |o| %>
+          <li class="<%= [o.severity, fixed_class(o.corrected?)].join(' ') %>">
+            <a href="<%= url_to(f,o.line) %>" title="<%= fixed_message(o.corrected?) %>">
+              <%= o.message %>
+            </a>
+            <span class="cop_name"><%= o.cop_name %></span>
+          </li>
+        <% end %>
+      </ol>
+    </div>
+  <% end %>
 
-  <pre>
-    <%= @results %>
-  </pre>
-  
+  <table id="metadata">
+    <% metadata.each_pair do |key, value| %>
+      <tr><th><%= key %></th><td><%= value %></td></tr>
+    <% end %>
+  </table>
+
 </body>
 </html>

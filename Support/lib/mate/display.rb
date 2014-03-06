@@ -8,7 +8,7 @@ module Mate
     attr_accessor :results
 
     def initialize(args)
-      @results = args[:json]
+      @result = args[:result]
     end
     
     def render

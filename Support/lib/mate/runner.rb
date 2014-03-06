@@ -8,24 +8,21 @@ module Mate
     include Mate::Env
     attr_accessor :options
     
+    
     def initialize(args={})
-      @options = args.merge :format => ['simple']
+      @options = args
     end
 
     def run_file
-      render(single_file)
+      run(single_file)
     end
 
     def run_files
-      render(multiple_files)
+      run(multiple_files)
     end
 
     private
 
-    def render(files)
-      puts Display.new(:json => run(files)).render
-    end
-    
     def run(f)
       Dir.chdir(project_path) do
         Proxy.run!(:options => options, :files => f)

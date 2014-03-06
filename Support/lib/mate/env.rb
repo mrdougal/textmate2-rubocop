@@ -9,7 +9,6 @@ module Mate
       def vendor_path
         File.expand_path(ENV['TM_BUNDLE_SUPPORT'] + '/vendor')
       end
-  
 
       def multiple_files
         ENV['TM_SELECTED_FILES'].scan(/'(.*?)'/).flatten.collect do |path|

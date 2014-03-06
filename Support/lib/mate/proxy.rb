@@ -17,22 +17,18 @@ class Proxy
   attr_accessor :options, :files, :which_rubocop
 
   def initialize(args)
-    @options       = args[:options]
+    @options       = custom_formatter_options.merge(args[:options])
     @files         = [args[:files]].flatten
     @which_rubocop = load_rubocop
   end
   
   def run!
     Rubocop::CLI.new.run(runtime_options)
-    # runtime_options
-    # files
   end
 
   private
 
   def runtime_options
-    # options_to_a
-    # files
     options_to_a.concat(files)
   end
   
@@ -73,6 +69,12 @@ class Proxy
 
     require 'rubocop'
     :embedded
-  end     
-          
+  end
+ 
+  def custom_formatter_options
+    {
+      :require => File.expand_path(ENV['TM_BUNDLE_SUPPORT'] + '/lib/mate/formatter/base.rb'),
+      :format  => 'Mate::Formatter::Base'
+    }
+  end
 end
