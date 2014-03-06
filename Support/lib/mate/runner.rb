@@ -8,9 +8,9 @@ module Mate
     include Mate::Env
     attr_accessor :options
 
-    def initialize(args = {})
-      @options = args
-    end
+    # def initialize(args = {})
+    #   @options = args
+    # end
 
     def current_file
       run(single_file)
@@ -24,7 +24,7 @@ module Mate
 
     def run(f)
       Dir.chdir(project_path) do
-        Proxy.run!(options: options, files: f)
+        Proxy.run!(files: f)
       end
     end
   end
