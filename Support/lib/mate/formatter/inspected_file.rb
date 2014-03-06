@@ -1,28 +1,20 @@
 module Mate
   module Formatter
+    # Helper class - representing the inspected file
+    # most of the hard work as been done
     class InspectedFile
-      
       attr_accessor :path, :offences
-      
       def initialize(args)
         @path     = args[:file]
-        
-        # severity
-        # message
-        # cop_name
-        
-        # corrected?
-        # line
-        # real_column
+
+        # Attributes of an offence
+        # * severity
+        # * message
+        # * cop_name
+        # * corrected?
+        # * line
+        # * real_column
         @offences = args[:offences]
-      end
-      
-      def name
-        @path
-      end
-      
-      def url(offence)
-        "txt:#{@path}"
       end
 
     end
