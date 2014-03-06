@@ -7,6 +7,8 @@ Basically it wil get grumpy at you for having bade code.
 
 Analysis can be performed on the current working file, or on a selection of files or folders.
 
+!['Results window'](https://pbs.twimg.com/media/BiB6KBqCUAAFfIi.png "Results window")
+
 ##Installation
 
 The easiest way to install is with git. *If you're running 10.8 it's already installed on your mac*
