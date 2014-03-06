@@ -1,17 +1,17 @@
+require 'rubygems'
+require ENV['TM_BUNDLE_SUPPORT'] + '/lib/mate/env.rb'
+
 # Try to detect where rubocop is installed on the users system
 # Attempts to load rubocop from the following locations
 # 
 # * system path
 # * project
 # * embedded version
-require 'rubygems'
-require ENV['TM_BUNDLE_SUPPORT'] + '/lib/mate/env.rb'
-
 class Proxy
   include Mate::Env
   
   def self.run!(options)
-    self.new(options).run!
+    new(options).run!
   end
   
   attr_accessor :options, :files, :which_rubocop
@@ -33,7 +33,7 @@ class Proxy
   end
   
   def options_to_a
-    options.each_pair.inject([]) do |obj, key_value|
+    options.each_pair.reduce([]) do |obj, key_value|
       obj << "--#{key_value[0]}"
       obj << key_value[1]
       obj
@@ -45,22 +45,18 @@ class Proxy
   end
   
   def system_rubocop
-    begin
-      require 'rubocop'
-      :system
+    require 'rubocop'
+    :system
     rescue LoadError
       false
-    end
   end
   
   def project_rubocop
-    begin
-      $: << project_path unless $:.member?(project_path)
-      require 'rubocop'
-      :project
+    $LOAD_PATH << project_path unless $LOAD_PATH.member?(project_path)
+    require 'rubocop'
+    :project
     rescue LoadError
       false
-    end
   end
   
   def embedded_rubocop
@@ -73,8 +69,8 @@ class Proxy
  
   def custom_formatter_options
     {
-      :require => File.expand_path(ENV['TM_BUNDLE_SUPPORT'] + '/lib/mate/formatter/base.rb'),
-      :format  => 'Mate::Formatter::Base'
+      require: File.expand_path(ENV['TM_BUNDLE_SUPPORT'] + '/lib/mate/formatter/base.rb'),
+      format: 'Mate::Formatter::Base'
     }
   end
 end

@@ -16,7 +16,6 @@ module Mate
         # * real_column
         @offences = args[:offences]
       end
-
     end
   end
 end

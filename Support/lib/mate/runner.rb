@@ -2,13 +2,13 @@ require ENV['TM_BUNDLE_SUPPORT'] + '/lib/mate/env.rb'
 require ENV['TM_BUNDLE_SUPPORT'] + '/lib/mate/proxy.rb'
 
 module Mate
+  # Called directly by the scripts in bin, and calls the rubocop proxy
+  # which will run the analysis
   class Runner
-    
     include Mate::Env
     attr_accessor :options
-    
-    
-    def initialize(args={})
+
+    def initialize(args = {})
       @options = args
     end
 
@@ -24,9 +24,8 @@ module Mate
 
     def run(f)
       Dir.chdir(project_path) do
-        Proxy.run!(:options => options, :files => f)
+        Proxy.run!(options: options, files: f)
       end
     end
-    
   end
 end

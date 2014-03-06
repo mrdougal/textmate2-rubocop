@@ -1,9 +1,12 @@
 module Mate
+  # Various methods that deal with the TextMate env
   module Env
     module InstanceMethods
       
       def project_path
-        File.expand_path(ENV['TM_PROJECT_DIRECTORY']) rescue File.dirname(single_file)
+        File.expand_path(ENV['TM_PROJECT_DIRECTORY']) 
+        rescue
+          File.dirname(single_file)
       end
       
       def vendor_path
