@@ -17,7 +17,7 @@ class Proxy
   attr_accessor :options, :files, :which_rubocop
 
   def initialize(args)
-    @options       = custom_formatter_options.merge(args[:options])
+    @options       = custom_formatter_options
     @files         = [args[:files]].flatten
     @which_rubocop = load_rubocop
   end
