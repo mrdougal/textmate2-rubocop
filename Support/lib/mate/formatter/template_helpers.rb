@@ -18,7 +18,6 @@ module Mate
           val ? 'fixed' : 'not_fixed'
         end
         
-        
         def fixed_message(val)
           "This has #{val ? 'has' : 'has not'} been fixed automatically"
         end
@@ -28,6 +27,25 @@ module Mate
           file.path.sub(project_path,'')
         end
         
+        def offences_message
+          case @summary[:offence_count]
+          when 0
+            'No offences'
+          when 1
+            'Only 1 offence'
+          else
+            "#{@summary[:offence_count]} offences"
+          end                               
+        end
+        
+        def file_count
+          @files.length > 1 ? "#{@files.length} files" : '1 file'
+        end
+
+        def partial(file, options={})
+          f = options[:f]
+          ERB.new(File.read(template_path(file))).result(binding)
+        end
       end
       
       def self.included(receiver)

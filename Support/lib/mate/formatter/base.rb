@@ -54,8 +54,12 @@ module Mate
         Pathname.new(path).relative_path_from(Pathname.getwd).to_s
       end
     
-      def template_path
-        File.join(ENV['TM_BUNDLE_SUPPORT'], '/templates/result.erb')
+      def template_path(path='result.erb')
+        File.join(template_base_path,path)
+      end
+
+      def template_base_path
+        File.join(ENV['TM_BUNDLE_SUPPORT'], 'templates')
       end
     
     end

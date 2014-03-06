@@ -1,0 +1,10 @@
+<ol class="offences">
+  <% f.offences.each do |o| %>
+    <li class="status <%= [o.severity, fixed_class(o.corrected?)].join(' ') %>">
+      <a href="<%= url_to(f,o.line) %>" title="<%= o.severity %>">
+        <%= o.message %>
+      </a>
+      <span class="cop_name"><%= o.cop_name %></span>
+    </li>
+  <% end %>
+</ol>

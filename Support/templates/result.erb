@@ -11,7 +11,7 @@
     }
     
     h1, h2, h3, th {
-      font-weight: 400;
+      font-weight: 600;
       font-size: 1em;
     }
     
@@ -26,11 +26,19 @@
       padding: 0.25em;
     }
     
-    /* ============ */
-    /* = Offences = */
-    /* ============ */
-    /*    `:refactor`, `:convention`, `:warning`, `:error` or `:fatal`.*/
+    /*    
+      Offences, posible values...
+      * refactor 
+      * convention 
+      * warning 
+      * error
+      * fatal
+    */
     
+    .status {
+      padding: 0.5em 1em;
+    }
+        
     .refactor {
       background-color: #FB4F5F;
     }
@@ -49,6 +57,10 @@
     .fatal {
       color: #fff;
       background-color: #CC0920;
+    }
+    
+    .good {
+      background-color: #73B532;
     }
     
     .file_report {
@@ -73,19 +85,16 @@
 </head>
 <body>
   
+  <h1><%= offences_message %> from <%= file_count %></h1>
+  
   <% @files.each do |f| %>
     <div class="file_report">
-      <a href="<%= url_to(f) %>"><%= filename(f) %></a>
-      <ol class="offences">
-        <% f.offences.each do |o| %>
-          <li class="<%= [o.severity, fixed_class(o.corrected?)].join(' ') %>">
-            <a href="<%= url_to(f,o.line) %>" title="<%= fixed_message(o.corrected?) %>">
-              <%= o.message %>
-            </a>
-            <span class="cop_name"><%= o.cop_name %></span>
-          </li>
-        <% end %>
-      </ol>
+      <h4><a href="<%= url_to(f) %>"><%= filename(f) %></a></h4>
+      <% if @summary[:offence_count].zero? %>
+        <%= partial '_all_good.erb' %>
+      <% else %>
+        <%= partial '_offences.erb', {:f => f} %>
+      <% end %>
     </div>
   <% end %>
 
