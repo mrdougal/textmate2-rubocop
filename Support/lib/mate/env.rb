@@ -11,7 +11,7 @@ module Mate
       end
 
       def multiple_files
-        ENV['TM_SELECTED_FILES'].scan(/'(.*?)'/).flatten.collect do |path|
+        ENV['TM_SELECTED_FILES'].scan(/'(.*?)'/).flatten.map do |path|
           File.expand_path(path)
         end
       end
