@@ -9,9 +9,11 @@ module Mate
       module InstanceMethods
         include Mate::Env
         
-        def url_to(file, line = nil)
+        def url_to(file, line = nil, column = nil)
+          # for reference http://blog.macromates.com/2007/the-textmate-url-scheme/
           out = "txmt://open?url=file://#{File.expand_path(file.path)}"
           out += "&line=#{line}" if line
+          out += "&column=#{column}" if column
           out
         end
         
