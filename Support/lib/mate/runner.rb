@@ -13,11 +13,11 @@ module Mate
       @options = args
     end
 
-    def run_file
+    def current_file
       run(single_file)
     end
 
-    def run_files
+    def selected_files
       run(multiple_files)
     end
 

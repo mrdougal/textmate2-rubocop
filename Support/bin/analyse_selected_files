@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+$LOAD_PATH << "#{ENV['TM_BUNDLE_SUPPORT']}/lib"
+
+require 'mate/runner'
+Mate::Runner.new.selected_files

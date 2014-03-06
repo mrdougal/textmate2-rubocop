@@ -8,7 +8,7 @@
 	<string>#!/usr/bin/env bash
 
 cd "$TM_PROJECT_DIRECTORY"
-ruby "$TM_BUNDLE_SUPPORT/bin/run_file"</string>
+ruby "$TM_BUNDLE_SUPPORT/bin/analyse_current_file"</string>
 	<key>input</key>
 	<string>document</string>
 	<key>inputFormat</key>
@@ -16,7 +16,7 @@ ruby "$TM_BUNDLE_SUPPORT/bin/run_file"</string>
 	<key>keyEquivalent</key>
 	<string>~@c</string>
 	<key>name</key>
-	<string>Analyse file</string>
+	<string>Analyse current file</string>
 	<key>outputCaret</key>
 	<string>afterOutput</string>
 	<key>outputFormat</key>

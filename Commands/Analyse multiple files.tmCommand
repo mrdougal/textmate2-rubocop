@@ -9,11 +9,8 @@
 [[ -f "${TM_SUPPORT_PATH}/lib/bash_init.sh" ]] &amp;&amp; . "${TM_SUPPORT_PATH}/lib/bash_init.sh"
 
 
-#!/usr/bin/env bash
-
-#####!/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/bin/ruby -wKU
 cd "$TM_PROJECT_DIRECTORY"
-ruby "$TM_BUNDLE_SUPPORT/bin/run_files"</string>
+ruby "$TM_BUNDLE_SUPPORT/bin/analyse_selected_files"</string>
 	<key>input</key>
 	<string>selection</string>
 	<key>inputFormat</key>
@@ -21,7 +18,7 @@ ruby "$TM_BUNDLE_SUPPORT/bin/run_files"</string>
 	<key>keyEquivalent</key>
 	<string>~@r</string>
 	<key>name</key>
-	<string>Analyse multiple files</string>
+	<string>Analyse selected files/folders</string>
 	<key>outputCaret</key>
 	<string>afterOutput</string>
 	<key>outputFormat</key>
