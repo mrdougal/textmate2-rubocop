@@ -1,5 +1,4 @@
 require ENV['TM_BUNDLE_SUPPORT'] + '/lib/mate/env.rb'
-require ENV['TM_BUNDLE_SUPPORT'] + '/lib/mate/display.rb'
 require ENV['TM_BUNDLE_SUPPORT'] + '/lib/mate/proxy.rb'
 
 module Mate
