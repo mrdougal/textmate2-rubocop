@@ -13,15 +13,16 @@ Analysis can be performed on the current working file, or on a selection of file
 
 The easiest way to install is with git. *If you're running 10.8 it's already installed on your mac*
 
-    git clone git@github.com:mrdougal/textmate2-rubocop.git ~/Library/Application\ Support/TextMate/Bundles/rubocop.tmbundle
-
+1. `git clone git@github.com:mrdougal/textmate2-rubocop.git ~/Desktop/rubocop.tmbundle`
+2. Double click the rubocop.tmbundle
+3. TextMate will lauch and ask you if you'd like to install the bundle
 
 If for some reason you don't have Git, or you don't like it
 
-* Download the code
-* Extract the package
-* Rename the folder to 'rubocop.tmbundle' and choose Use .tmbundle Extension
-* Double click on the new folder and TextMate will handle the rest!
+1. Download the code
+2. Extract the package
+3. Rename the folder to 'rubocop.tmbundle' and choose Use .tmbundle Extension
+4. TextMate will lauch and ask you if you'd like to install the bundle
 
 
 ##Not tested on TM1
