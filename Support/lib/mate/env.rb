@@ -1,6 +1,7 @@
 module Mate
   # Various methods that deal with the TextMate env
   module Env
+    # Boilder plate
     module InstanceMethods
       
       def project_path
@@ -23,6 +24,13 @@ module Mate
         File.expand_path(ENV['TM_FILEPATH'])
       end
       
+      def users_first_name
+        users_name.first
+      end
+        
+      def users_name
+        ENV['TM_FULLNAME'].split(' ')
+      end
     end
     
     def self.included(receiver)
