@@ -25,10 +25,10 @@ module Mate
       end
       
       def users_first_name
-        users_name.first
+        users_names.first || '' 
       end
         
-      def users_name
+      def users_names
         ENV['TM_FULLNAME'].split(' ')
       end
     end
