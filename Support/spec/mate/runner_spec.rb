@@ -8,9 +8,10 @@ describe "Mate runner" do
     @runner = Mate::Runner.new
   end
   
-  it "should be able to run" do
-    @runner.run_file.should == ''
-  end
+  # it "should be able to run" do
+  #   pending 'this is super noisy'
+  #   # lambda { @runner.current_file }.should_not raise_error
+  # end
   
   it "should have project_path" do
     @runner.send(:project_path).should =~ /Support/

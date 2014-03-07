@@ -8,10 +8,6 @@ module Mate
     include Mate::Env
     attr_accessor :options
 
-    # def initialize(args = {})
-    #   @options = args
-    # end
-
     def current_file
       run(single_file)
     end
