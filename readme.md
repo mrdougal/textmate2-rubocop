@@ -3,7 +3,7 @@
 A [TextMate 2](https://github.com/textmate/textmate) bundle for [RuboCop](https://github.com/bbatsov/rubocop).
 
 RuboCop bills itself as "A Ruby static code analyzer, based on the community Ruby style guide".
-Basically it wil get grumpy at you for having bad code.
+Basically it will get grumpy at you for having bad code.
 
 Analysis can be performed on the current working file or on a selection of files or folders.
 
