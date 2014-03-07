@@ -7,7 +7,7 @@ Basically it wil get grumpy at you for having bade code.
 
 Analysis can be performed on the current working file, or on a selection of files or folders.
 
-!['Results window'](https://pbs.twimg.com/media/BiB6KBqCUAAFfIi.png "Results window")
+!['Results window'](https://pbs.twimg.com/media/BiGCdWjCQAAzZwp.png "Results window")
 
 ##Installation
 
