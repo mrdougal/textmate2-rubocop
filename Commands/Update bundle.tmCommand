@@ -15,7 +15,7 @@ git pull origin master
 	<key>inputFormat</key>
 	<string>text</string>
 	<key>name</key>
-	<string>Update bundle</string>
+	<string>Update bundle…</string>
 	<key>outputCaret</key>
 	<string>afterOutput</string>
 	<key>outputFormat</key>
