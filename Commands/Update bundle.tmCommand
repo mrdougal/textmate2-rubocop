@@ -7,9 +7,13 @@
 	<key>command</key>
 	<string>#!/usr/bin/env bash
 
-cd "$TM_BUNDLE_SUPPORT"
-git pull origin master
-</string>
+cd "$TM_BUNDLE_SUPPORT/.."
+
+if [[ -d '.git' ]]; then
+  git pull origin master
+else
+  echo 'Unable to update. No git repository detected'
+fi</string>
 	<key>input</key>
 	<string>none</string>
 	<key>inputFormat</key>
