@@ -78,19 +78,24 @@
       float: right;
     }
     
-    .cop_name, #metadata {
-      color: rgba(0,0,0,0.5);
-      font-size: 0.75em;
+    .cop_name, footer, footer a {
+      color: rgba(0,0,0,0.5);s
     }
-
-    #metadata {
+    
+    #metadata, #help {
+      font-size: 0.75em;
       margin-bottom: 1em;
+      display: inline-block;
     }
     
     #metadata th, #metadata td {
       text-align: left;
       padding-right: 0.75em;
       font-weight: 400;
+    }
+    
+    #help {
+      float: right;
     }
     
   </style>
@@ -112,6 +117,9 @@
         <tr><th><%= key %></th><td><%= value %></td></tr>
       <% end %>
     </table>
+    <div id="help">
+      <a href="https://github.com/bbatsov/rubocop#configuration">Configuring RuboCop</a>
+    </div>
   </footer>
 </body>
 </html>
