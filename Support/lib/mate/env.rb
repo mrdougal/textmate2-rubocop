@@ -25,7 +25,7 @@ module Mate
       end
       
       def users_first_name
-        users_names.first.capitalize || '' 
+        (users_names.first && users_names.first.capitalize) || '' 
       end
         
       def users_names
