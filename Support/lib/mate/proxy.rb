@@ -23,7 +23,7 @@ class Proxy
   end
   
   def run!
-    Rubocop::CLI.new.run(runtime_options)
+    RuboCop::CLI.new.run(runtime_options)
   end
 
   private

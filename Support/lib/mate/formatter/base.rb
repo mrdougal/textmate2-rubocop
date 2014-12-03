@@ -7,7 +7,7 @@ module Mate
   module Formatter
     # This is used to format the response from rubocop
     # This is heavily influenced by the json formatter
-    class Base < Rubocop::Formatter::BaseFormatter
+    class Base < RuboCop::Formatter::BaseFormatter
       include ERB::Util
       include TemplateHelpers
       attr_reader :files, :summary, :files
@@ -34,7 +34,7 @@ module Mate
 
       def metadata
         {
-          :'RuboCop version' => Rubocop::Version::STRING,
+          :'RuboCop version' => RuboCop::Version::STRING,
           :'Ruby engine'     => RUBY_ENGINE,
           :'Ruby version'    => RUBY_VERSION,
           :'Ruby patchlevel' => RUBY_PATCHLEVEL.to_s,
