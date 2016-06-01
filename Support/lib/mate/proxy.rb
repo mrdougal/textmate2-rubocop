@@ -1,6 +1,8 @@
 require 'rubygems'
 require ENV['TM_BUNDLE_SUPPORT'] + '/lib/mate/env.rb'
 
+Mate::Env.load_bundler
+
 # Try to detect where rubocop is installed on the users system
 # Attempts to load rubocop from the following locations
 #
