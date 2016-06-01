@@ -7,6 +7,7 @@
 	<key>command</key>
 	<string>#!/usr/bin/env bash
 
+[[ -f "$HOME/.rvm/scripts/rvm" ]] &amp;&amp; . "$HOME/.rvm/scripts/rvm"
 cd "$TM_PROJECT_DIRECTORY"
 ruby "$TM_BUNDLE_SUPPORT/bin/analyse_current_file"</string>
 	<key>input</key>
