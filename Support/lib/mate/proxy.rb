@@ -14,6 +14,10 @@ class Proxy
     new(options).run!
   end
 
+  def self.rubocop
+    defined?(RuboCop) ? RuboCop : Rubocop
+  end
+
   attr_accessor :options, :files, :which_rubocop
 
   def initialize(args)
@@ -23,7 +27,7 @@ class Proxy
   end
 
   def run!
-    Rubocop::CLI.new.run(runtime_options)
+    self.class.rubocop::CLI.new.run(runtime_options)
   end
 
   private
